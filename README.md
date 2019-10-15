@@ -1,0 +1,2 @@
+# 42-Fractol
+The term fractal was first used by mathematician Benoit Mandelbrot in 1974, he based it on the Latin word fractus, meaning "broken" or "fractured". A fractal is an abstract mathematical object, like a curve or a surface, which has a similar pattern whatever the scale. Various natural phenomena – like the romanesco cabbage – have some fractal features. This project will be the opportunity to hone the miniLibX skills, to discover/use the mathematical notion of complex numbers and to take a peek at the concept of optimisation in computer graphics.
