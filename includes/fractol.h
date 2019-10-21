@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semenkravtsov <semenkravtsov@student.42    +#+  +:+       +#+        */
+/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:29:18 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/15 01:53:41 by semenkravts      ###   ########.fr       */
+/*   Updated: 2019/10/16 22:07:14 by semen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct	s_type
 	int		type;
 	int		depth;
 	int		iteration;
+	int		i;
 	double	width;
 	double	height;
 	double	scale;
@@ -101,10 +102,12 @@ int				key_press(int keycode, t_fractol *fractol);
 int				mouse_press(int mousecode, int x, int y, t_fractol *fractol);
 int				mouse_manipulate(int x, int y, t_fractol *fractol);
 void			zoom_plus(int x, int y, t_fractol *fractol);
+int				ft_close(void *param);
 void			zoom_minus(t_fractol *fractol);
 void			diffrent_colors(t_fractol *fractol);
 void			fractol_match_the_norme(t_fractol *fractol, char *str);
 void			enable_control(t_fractol *fractol);
+void			fractal_iteration(t_fractol *fractol, int keycode);
 
 int				julia(t_fractol *fractol);
 int				mandelbrot(t_fractol *fractol);

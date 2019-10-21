@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semenkravtsov <semenkravtsov@student.42    +#+  +:+       +#+        */
+/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:26:15 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/15 01:52:45 by semenkravts      ###   ########.fr       */
+/*   Updated: 2019/10/16 22:08:38 by semen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 static void		how_to_use_fractol(char *av0)
 {
 	ft_printf("Fractol usage: ");
-	ft_printf("%s",av0);
+	ft_printf("%s", av0);
 	ft_printf(" [Fractol_name]\n");
 	ft_printf(" [ julia | mandelbrot | psych_spots | circle | cross ");
 	ft_printf("| man | chiken ]\n");
@@ -35,6 +35,7 @@ void			enable_control(t_fractol *fractol)
 {
 	mlx_hook(fractol->mlx.win, 2, 3, key_press, fractol);
 	mlx_hook(fractol->mlx.win, 4, 3, mouse_press, fractol);
+	mlx_hook(fractol->mlx.win, 17, 0, ft_close, fractol);
 	mlx_hook(fractol->mlx.win, 6, 3, mouse_manipulate, fractol);
 	mlx_loop(fractol->mlx.init);
 }
@@ -48,6 +49,7 @@ void			fractol_initialization(t_fractol *fractol)
 {
 	fractol->fractal.x = -2.50;
 	fractol->fractal.y = -1.25;
+	fractol->fractal.i = 1;
 	fractol->fractal.scale = 320.00;
 	fractol->fractal.iteration = 50;
 	fractol->color.red = 0x95;
@@ -91,7 +93,8 @@ static int		fractol_selecting(char *fractol_name, t_fractol *fractol)
 		fractol->fractal.type = 7;
 	else
 	{
-		ft_printf("%s is not a valid sesfsedparameter! Valid parameters are:\n", fractol_name);
+		ft_printf("%s is not a valid sesfsedparameter!\
+				Valid parameters are:\n", fractol_name);
 		ft_printf("[ julia | mandelbrot | psych_spots | circle | ");
 		ft_printf(" cross | man | chiken ]\n");
 	}

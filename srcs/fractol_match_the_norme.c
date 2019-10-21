@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_match_the_norme.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semenkravtsov <semenkravtsov@student.42    +#+  +:+       +#+        */
+/*   By: fshade <fshade@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:45:43 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/15 01:43:29 by semenkravts      ###   ########.fr       */
+/*   Updated: 2019/10/16 13:35:51 by fshade           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void			fractol_match_the_norme(t_fractol *fractol, char *str)
 	fractol_initialization(fractol);
 	fractol_drawing(fractol);
 	enable_control(fractol);
+	free(fractol);
 }

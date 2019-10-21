@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: semenkravtsov <semenkravtsov@student.42    +#+  +:+       +#+         #
+#    By: fshade <fshade@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 17:35:33 by eschoen           #+#    #+#              #
-#    Updated: 2019/10/15 01:37:29 by semenkravts      ###   ########.fr        #
+#    Updated: 2019/10/16 14:25:31 by fshade           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,16 +60,6 @@ YELLOW = \033[0;33m
 # Публикуем все правила в Makefile
 .PHONY: all clean fclean re
 
-# Правило для запуска проверки на норму
-norme:
-	norminette ./$(LIBFT_DIR)/
-	@echo
-	norminette ./$(HEADERS_DIR)/
-	@echo
-	norminette ./$(SRCS_DIR)/
-	@echo
-	norminette ./$(FT_PRINTF_DIR)/
-
 # Комадны для компиляции:
 all: $(NAME)
 
@@ -99,6 +89,16 @@ $(FT_PRINTF):
 $(MINILIBX):
 	@echo "$(NAME): $(GREEN)Making $(MINILIBX)...$(WHITE)"
 	@$(MAKE) -sC $(MINILIBX_DIR)
+
+# Правило для запуска проверки на норму
+norme:
+	norminette ./$(LIBFT_DIR)/
+	@echo
+	norminette ./$(HEADERS_DIR)/
+	@echo
+	norminette ./$(SRCS_DIR)/
+	@echo
+	norminette ./$(FT_PRINTF_DIR)/
 
 clean:
 	@$(MAKE) -sC $(LIBFT_DIR) clean

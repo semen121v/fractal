@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_management.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschoen <eschoen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:49 by eschoen           #+#    #+#             */
-/*   Updated: 2019/04/04 20:58:00 by eschoen          ###   ########.fr       */
+/*   Updated: 2019/10/16 22:18:36 by semen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 ** Для закрытия приложения Fractol.
 */
 
-static int		ft_close(void *param, t_fractol *fractol)
+int				ft_close(void *param)
 {
-	free(fractol);
 	(void)param;
 	exit(0);
 	return (0);
@@ -82,7 +81,7 @@ int				mouse_press(int mousecode, int x, int y, t_fractol *fractol)
 int				key_press(int keycode, t_fractol *fractol)
 {
 	if (keycode == 53)
-		ft_close(0, fractol);
+		ft_close(0);
 	else if (keycode == 13 || keycode == 126)
 		fractol->fractal.y -= 10 / fractol->fractal.scale;
 	else if (keycode == 0 || keycode == 123)
@@ -91,10 +90,9 @@ int				key_press(int keycode, t_fractol *fractol)
 		fractol->fractal.y += 10 / fractol->fractal.scale;
 	else if (keycode == 2 || keycode == 124)
 		fractol->fractal.x += 10 / fractol->fractal.scale;
-	else if (keycode == 24 || keycode == 69)
-		zoom_plus((WIN_WIDTH / 2), (WIN_HEIGHT / 2), fractol);
-	else if (keycode == 27 || keycode == 78)
-		zoom_minus(fractol);
+	else if (keycode == 24 || keycode == 69 || keycode == 27 || keycode == 78 \
+				|| keycode == 12)
+		fractal_iteration(fractol, keycode);
 	else if (keycode == 15)
 		fractol_initialization(fractol);
 	else if (keycode == 8)

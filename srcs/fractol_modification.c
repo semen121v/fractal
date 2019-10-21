@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_changing.c                                 :+:      :+:    :+:   */
+/*   fractol_modification.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eschoen <eschoen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 20:13:42 by eschoen           #+#    #+#             */
-/*   Updated: 2019/04/04 20:01:03 by eschoen          ###   ########.fr       */
+/*   Updated: 2019/10/16 22:20:54 by semen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void		zoom_plus(int x, int y, t_fractol *fractol)
 	fractol->fractal.y += ((fractol->fractal.scale * SCALE_ACCURACY) / 2) - \
 		(y / (fractol->fractal.scale * SCALE_ACCURACY));
 	fractol->fractal.scale *= SCALE_ACCURACY;
-	if (fractol->fractal.type != 3)
-		fractol->fractal.iteration++;
+	// if (fractol->fractal.type != 3)
+	// 	fractol->fractal.iteration++;
 }
 
 /*
@@ -73,6 +73,19 @@ void		zoom_minus(t_fractol *fractol)
 	fractol->fractal.y += ((fractol->fractal.scale / SCALE_ACCURACY) / 2) - \
 		(fractol->mouse.pos_y / (fractol->fractal.scale / SCALE_ACCURACY));
 	fractol->fractal.scale /= SCALE_ACCURACY;
-	if (fractol->fractal.type != 3)
+	// if (fractol->fractal.type != 3)
+	// 	fractol->fractal.iteration--;
+}
+
+void		fractal_iteration(t_fractol *fractol, int keycode)
+{
+	if (keycode == 24 || keycode == 69)
+		fractol->fractal.iteration =  fractol->fractal.iteration + fractol->fractal.i;
+	else if (keycode == 12)
+	{
+		fractol->fractal.i = fractol->fractal.i + 10;
+		return ;
+	}
+	else
 		fractol->fractal.iteration--;
 }
