@@ -6,7 +6,7 @@
 #    By: fshade <fshade@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 17:35:33 by eschoen           #+#    #+#              #
-#    Updated: 2019/10/16 14:25:31 by fshade           ###   ########.fr        #
+#    Updated: 2019/10/22 12:12:14 by fshade           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fractol
 
 # Компилятор, флаги, подключение OpenG
 COM = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBRARIES = -lmlx -lm -lft -L$(LIBFT_DIR) -L$(MINILIBX_DIR) -framework OpenGL -framework AppKit
 INCLUDES = -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS) -I$(FT_PRINTF_DIR)includes
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_management.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fshade <fshade@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:49 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/16 22:18:36 by semen            ###   ########.fr       */
+/*   Updated: 2019/10/22 11:43:25 by fshade           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int				key_press(int keycode, t_fractol *fractol)
 	else if (keycode == 2 || keycode == 124)
 		fractol->fractal.x += 10 / fractol->fractal.scale;
 	else if (keycode == 24 || keycode == 69 || keycode == 27 || keycode == 78 \
-				|| keycode == 12)
+				|| keycode == 36 || keycode == 51)
 		fractal_iteration(fractol, keycode);
 	else if (keycode == 15)
 		fractol_initialization(fractol);

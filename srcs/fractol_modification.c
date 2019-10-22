@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_modification.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fshade <fshade@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 20:13:42 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/16 22:20:54 by semen            ###   ########.fr       */
+/*   Updated: 2019/10/22 12:42:59 by fshade           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		diffrent_colors(t_fractol *fractol)
 }
 
 /*
-** Увеличивает масштаб фрактала в зависимости от положения мыши (x и y) и
-** увеличивает уровень итерации. Сохраняет позицию в x_pos и y_pos, используемые
+** Увеличивает масштаб фрактала в зависимости от положения мыши (x и y).
+** Сохраняет позицию в x_pos и y_pos, используемые
 ** позже функцией zoom_minus(). Если фрактал является circle, то
 ** итерации не будут увеличиваться. Уровень масштабирования ограничен
 ** макросом ZOOM_LIMIT.
@@ -52,12 +52,10 @@ void		zoom_plus(int x, int y, t_fractol *fractol)
 	fractol->fractal.y += ((fractol->fractal.scale * SCALE_ACCURACY) / 2) - \
 		(y / (fractol->fractal.scale * SCALE_ACCURACY));
 	fractol->fractal.scale *= SCALE_ACCURACY;
-	// if (fractol->fractal.type != 3)
-	// 	fractol->fractal.iteration++;
 }
 
 /*
-** Уменьшите масштаб и уровень итерации. Использует положение мыши из функции
+** Уменьшите масштаб. Использует положение мыши из функции
 ** zoom_plus (). Если фрактал является сферой, то итерации не будут
 ** уменьшаться.
 */
@@ -73,19 +71,25 @@ void		zoom_minus(t_fractol *fractol)
 	fractol->fractal.y += ((fractol->fractal.scale / SCALE_ACCURACY) / 2) - \
 		(fractol->mouse.pos_y / (fractol->fractal.scale / SCALE_ACCURACY));
 	fractol->fractal.scale /= SCALE_ACCURACY;
-	// if (fractol->fractal.type != 3)
-	// 	fractol->fractal.iteration--;
 }
 
 void		fractal_iteration(t_fractol *fractol, int keycode)
 {
 	if (keycode == 24 || keycode == 69)
-		fractol->fractal.iteration =  fractol->fractal.iteration + fractol->fractal.i;
-	else if (keycode == 12)
+		fractol->fractal.iteration = fractol->fractal.iteration \
+			+ fractol->fractal.i;
+	else if (keycode == 36)
 	{
 		fractol->fractal.i = fractol->fractal.i + 10;
 		return ;
 	}
+	else if (keycode == 51)
+	{
+		if (fractol->fractal.i > 1)
+			fractol->fractal.i = fractol->fractal.i - 10;
+		return ;
+	}
 	else
-		fractol->fractal.iteration--;
+		fractol->fractal.iteration = fractol->fractal.iteration \
+			- fractol->fractal.i;
 }

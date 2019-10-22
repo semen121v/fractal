@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semen <semen@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fshade <fshade@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:29:18 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/16 22:07:14 by semen            ###   ########.fr       */
+/*   Updated: 2019/10/22 12:09:15 by fshade           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define SCALE_ACCURACY	(1.05)
 # define WIN_WIDTH		(1200)
 # define WIN_HEIGHT		(800)
-# define FLOWS			(12)
+# define FLOWS			(8)
 # define FT_SQUARE(x)	(x * x)
 
 typedef struct	s_mlx

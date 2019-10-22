@@ -6,7 +6,7 @@
 /*   By: fshade <fshade@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:29:03 by eschoen           #+#    #+#             */
-/*   Updated: 2019/10/16 11:36:58 by fshade           ###   ########.fr       */
+/*   Updated: 2019/10/22 13:21:30 by fshade           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,12 @@ void			fractol_drawing(t_fractol *fractol)
 	str3 = ft_strjoin("Iterations quantity : ", str1);
 	str4 = ft_strjoin("Zoom scale: ", str2);
 	mlx_string_put(fractol->mlx.init, fractol->mlx.win, 15, 10, 0xFFFF00, str3);
-	mlx_string_put(fractol->mlx.init, fractol->mlx.win, 15, 40, 0xFFFF00, str4);
+	free(str1);
+	free(str3);
+	str1 = ft_itoa(fractol->fractal.i);
+	str3 = ft_strjoin("Increment iteration step : ", str1);
+	mlx_string_put(fractol->mlx.init, fractol->mlx.win, 15, 40, 0xFFFF00, str3);
+	mlx_string_put(fractol->mlx.init, fractol->mlx.win, 15, 70, 0xFFFF00, str4);
 	free(str1);
 	free(str2);
 	free(str3);
